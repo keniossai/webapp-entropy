@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_DATABASE=db_ka_entropy
+      - DB_USERNAME=usr_ka_entropy
+      - DB_PASSWORD=QLzhC2fTj9OEC
+    depends_on:
+      - mysql
+    ports:
+      - "8086:80"
+      #mounts volume to local machine
+    #OJO CON EL VOLUME, Desactivar
+    #volumes:
+    # - ./app:/srv/app
+    links:
+      #service and alias to communicate directly using that name
+      - mysql:mysql
+    #env_file: .docker.env
+  mysql:
+    build: ./.docker/mysql
+    command: --max_allowed_packet=32505856 
+    #will pass the dump.sql file and will be run on container creation
+    volumes:
+      - ./.docker/mysql:/docker-entrypoint-initdb.d
+    ports:
+      - "13306:3306"
+    environment:
+      - MYSQL_DATABASE=db_ka_entropy
+      - MYSQL_USER=usr_ka_entropy
+      - MYSQL_PASSWORD=QLzhC2fTj9OEC
+      - MYSQL_ROOT_PASSWORD=QLzhC2fTj9OEC 
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - 9001:80
+    environment:
+      - PMA_ARBITRARY=1

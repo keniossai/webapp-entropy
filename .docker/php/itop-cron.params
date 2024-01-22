@@ -1,0 +1,13 @@
+# This is a parameter file
+#
+# If a parameter is given both in the file and in the arguments,
+# then the value given as argument is retained
+#
+ 
+# Authentication
+auth_user = 4dm1n
+auth_pwd = Acc.Pwd.2019
+ 
+# My web service
+size_min = 20 # Megabytes
+time_limit = 40 # Minutes

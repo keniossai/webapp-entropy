@@ -1,0 +1,4 @@
+#01 01 * * * www-data /usr/local/bin/php /srv/app/extensions/ldap-data-collector/exec.php
+#20 01 * * * www-data /usr/local/bin/php /srv/app/extensions/ocsng-data-collector/exec.php
+#*/5 * * * * www-data /usr/local/bin/php /srv/app/webservices/cron.php --param_file=/srv/app/.docker/php/itop-cron.params >>/srv/itop-cron.log 2>&1
+

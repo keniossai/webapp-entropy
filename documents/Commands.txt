@@ -1,0 +1,10 @@
+php artisan ka:setup
+php artisan db:seed --class=DummySeeder
+
+composer dump-autoload
+
+admin@kiddaitken.com
+kidd2022
+
+para dar permisos en produccion
+php artisan db:seed --class=AddPemissionSeeder
