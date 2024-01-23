@@ -43,6 +43,7 @@
 @endsection
 
 @section('master-content')
+
 <div class="card">
     <div class="card-header">
         <div class="card-title fs-3 fw-bold">
@@ -138,7 +139,7 @@
                             <div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-4">
                             <div class="col">
                                     <div class="fv-row mb-2">
-                                        <select class="form-select form-select-solid" data-control="select2" id="year" data-placeholder="Guide year" data-allow-clear="true">   
+                                        <select class="form-select form-select-solid" data-control="select2" id="year" data-placeholder="Guide year" data-allow-clear="true">
                                         </select>
                                     </div>
                                 </div>
@@ -702,7 +703,7 @@
                                         && (!filter.ids_months_ad || filter.ids_months_ad.indexOf(agreedDate) > -1);
                                 });
                             } else {
-                            
+
                                 $.ajax({
                                     headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
                                     type: "GET",

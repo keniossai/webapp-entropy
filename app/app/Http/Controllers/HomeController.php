@@ -29,6 +29,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $user_count = User::count();
         $checkUser = false;
         foreach(Auth::user()->userRole as $item){
             if($item->role->active == 0 || $item->user->active == 0){
@@ -61,7 +62,7 @@ class HomeController extends Controller
                 }
             }
 
-            return view('index');
+            return view('index', compact('user_count'));
         }
     }
 

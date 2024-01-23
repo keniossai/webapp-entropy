@@ -444,7 +444,7 @@
                                         <!--begin:Menu item-->
                                         <div id="module-{{ $currentMenu->id_menuitem }}"  data-kt-menu-trigger="click" class="menu-item menu-accordion">
                                             <!--begin:Menu link-->
-                                            <span class="menu-link">
+                                            <span class="menu-link" >
                                                 <span class="menu-icon">
                                                     @if($currentMenu->name == 'Security')
                                                         <span class="svg-icon svg-icon-2">
@@ -495,7 +495,6 @@
                                             <!--end:Menu sub-->
                                         </div>
                                         <!--end:Menu item-->
-
                                     @endforeach
                                 @endif
                             </div>
@@ -531,7 +530,7 @@
                                 </div>
                                 <!--end::Page title-->
                                 <!--begin::Actions-->
-                                <div class="d-flex align-items-center gap-2 gap-lg-3">
+                                <div class="d-flex align-items-center gap-2">
                                     @yield('master-header-buttons')
                                 </div>
                                 <!--end::Actions-->
