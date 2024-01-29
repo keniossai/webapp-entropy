@@ -477,18 +477,19 @@
                                             <div class="menu-sub menu-sub-accordion" module="{{ $currentMenu->name }}" id_menuitem="{{ $currentMenu->id_menuitem }}">
                                                 @foreach(Auth::user()->menuElements()['submenuModules'] as $currentSubMenu)
                                                     @if($currentSubMenu->father_id_menuitem == $currentMenu->id_menuitem)
-                                                        <!--begin:Menu item-->
                                                         <div class="menu-item">
-                                                            <!--begin:Menu link-->
-                                                            <a class="menu-link selected-menu-link " nameMenu="{{ $currentSubMenu->action->name }}" id="menuitem-{{ $currentSubMenu->id_menuitem }}" id_menuitem="{{ $currentSubMenu->id_menuitem }}" father_id_menuitem="{{ $currentSubMenu->father_id_menuitem }}" href="{{ Route::has($currentSubMenu->action->name) ? route($currentSubMenu->action->name) : 'under-construction' }}">
+                                                            <a class="menu-link selected-menu-link"
+                                                               nameMenu="{{ $currentSubMenu->action->name }}"
+                                                               id="menuitem-{{ $currentSubMenu->id_menuitem }}"
+                                                               id_menuitem="{{ $currentSubMenu->id_menuitem }}"
+                                                               father_id_menuitem="{{ $currentSubMenu->father_id_menuitem }}"
+                                                               href="{{ Route::has($currentSubMenu->action->name) ? route($currentSubMenu->action->name) : 'under-construction' }}">
                                                                 <span class="menu-bullet">
                                                                     <span class="bullet bullet-dot"></span>
                                                                 </span>
                                                                 <span class="menu-title">{{ $currentSubMenu->name }}</span>
                                                             </a>
-                                                            <!--end:Menu link-->
                                                         </div>
-                                                        <!--end:Menu item-->
                                                     @endif
                                                 @endforeach
                                             </div>

@@ -319,7 +319,7 @@
                                 <input type="text" name="name" id="name" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Name" value="" />
                             </div>
                             <div class="fv-row mb-7">
-                                <label class="required fs-6 fw-semibold mb-2">Module</label>
+                                <label class="fs-6 fw-semibold mb-2">Module</label>
                                 <select class="form-select form-select-solid" data-control="select2" id="father_id_menuitem" name="module" data-dropdown-parent="#kt_modal_add_user_form" data-placeholder="Select a module" data-allow-clear="true" required>
                                     <option></option>
                                     @foreach (App\Models\MenuItem::orderBy('name')->where(['active' => 1, 'father_id_menuitem' => null])->get() as $module)
@@ -487,7 +487,7 @@
                         var o=FormValidation.formValidation(e,{
                             fields:{
                                 name:{validators:{notEmpty:{message:"Name is required"}}},
-                                module:{validators:{notEmpty:{message:"Module is required"}}},
+
                                 action:{validators:{notEmpty:{message:"action is required"}}},
                                 order:{validators:{notEmpty:{message:"Order is required"}}}
                             },

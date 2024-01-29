@@ -1,25 +1,26 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\GroupController;
 use App\Http\Controllers\ActionController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\DeadlineController;
+use App\Http\Controllers\MenuItemController;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\WlmKanbanController;
 use App\Http\Controllers\AllocationController;
 use App\Http\Controllers\Auth\LoginController;
-use Illuminate\Support\Facades\Route;
-use Laravel\Socialite\Facades\Socialite;
-use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\ClientController;
-use App\Http\Controllers\DeadlineController;
-use App\Http\Controllers\DirectoryTaxonomyController;
-use App\Http\Controllers\GroupController;
 use App\Http\Controllers\KiddAitkenController;
-use App\Http\Controllers\MenuItemController;
 use App\Http\Controllers\PermissionController;
-use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SubmissionController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\WlmKanbanController;
+use App\Http\Controllers\DirectoryTaxonomyController;
 use App\Http\Controllers\WorkloadManagementController;
-use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +64,9 @@ Route::group(['middleware' => ['permission.verifier']], function () {
     Route::get('/impersonate/leave', [App\Http\Controllers\ImpersonateController::class, 'leave'])->name('leave');
     Route::post('search-users', [KiddAitkenController::class, 'searchUsers'])->name('search-users');
 
+    Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard-view');
+
+    
     Route::get('projects', [ProjectController::class, 'index'])->name('projects');
     Route::get('project/create', [ProjectController::class, 'create'])->name('create-project');
     Route::post('save-project', [ProjectController::class, 'save'])->name('save-project');
